@@ -8,8 +8,15 @@ namespace e_ponto.Exceptions
 {
     class LoginErrorException : Exception
     {
-        private const string InvalidLogin = @"Erro de login. Verifique seu usuario e senha";
-        public LoginErrorException() : base(InvalidLogin)
+        private const string INVALID_LOGIN = @"Erro de login. Verifique seu usuario e senha";
+        private const string EXTRA = @"Complemento: ";
+        public LoginErrorException()
+            : base(INVALID_LOGIN)
+        {
+        }
+
+        public LoginErrorException(string message)
+            : base(INVALID_LOGIN + EXTRA + message)
         {
         }
     }

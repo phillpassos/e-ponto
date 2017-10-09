@@ -53,9 +53,9 @@ namespace e_ponto.Classes
                 string schedDataString = Encoding.UTF8.GetString(clt.DownloadData(BASE_URL + SCHEDULES_URI));
                 scheds = Json.Decode<Schedules>(schedDataString);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw new LoginErrorException();
+                throw new LoginErrorException(e.Message);
             }
         }
     }
